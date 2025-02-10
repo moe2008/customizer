@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --custom-color: #ef4444;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+/* Mobile view styles */
+.mobile-view {
+  margin: 0 auto;
+}
+
+.mobile-view .max-w-6xl {
+  max-width: 100%;
+}
+
+.mobile-view .md\:grid-cols-2,
+.mobile-view .md\:grid-cols-3 {
+  grid-template-columns: 1fr;
+}
+
+.mobile-view .md\:flex-row {
+  flex-direction: column;
+}
+
+.mobile-view .md\:w-1\/2 {
+  width: 100%;
+}
+
+/* Custom color styles */
+.custom-bg {
+  background-color: var(--custom-color);
+}
+
+.custom-text {
+  color: var(--custom-color);
+}
+
+.custom-border {
+  border-color: var(--custom-color);
+}
+
+.custom-bg-light {
+  background-color: color-mix(in srgb, var(--custom-color) 10%, transparent);
+}
+
+/* Add styles for the sidebar overlay */
+.sidebar-overlay {
+  backdrop-filter: blur(4px);
+}
+
+/* Ensure proper z-index stacking */
+.sidebar-content {
+  z-index: 50;
+}
+
+/* Marquee animation styles */
+.animate-marquee {
+  min-width: max-content;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes carousel {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-carousel {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: carousel 30s linear infinite;
+}
+
+.animate-carousel > * {
+  flex: 0 0 auto;
+}
+
+.logo-banner-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.logo-banner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  padding: 1rem;
+  animation: slide 30s linear infinite;
+  width: max-content;
+}
+
+.logo-banner > div {
+  flex: 0 0 auto;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.logo-banner-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.logo-banner {
+  display: flex;
+  gap: 2rem;
+  animation: slide 30s linear infinite;
+  width: max-content;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
